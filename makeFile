@@ -1,0 +1,12 @@
+all: build
+	@./main.exe
+
+build: main.o util.o
+	@gcc $? -o main
+
+%.o: %.c header.h
+	@gcc -c $<
+
+clean:
+	@rm -f *.o
+	@rm -f *.exe
